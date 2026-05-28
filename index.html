@@ -1,0 +1,560 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Marcello Gomes | Desenvolvedor</title>
+
+    <meta name="description" content="Portfólio de Marcello Gomes - Desenvolvedor Front-End e Back-End.">
+
+    <script src="https://kit.fontawesome.com/77b4ef7fc8.js" crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            scroll-behavior:smooth;
+        }
+
+        body{
+            font-family:'Poppins',sans-serif;
+            background:#050816;
+            color:white;
+            overflow-x:hidden;
+        }
+
+        a{
+            text-decoration:none;
+            color:white;
+        }
+
+        section{
+            padding:100px 10%;
+        }
+
+        /* HEADER */
+
+        header{
+            position:fixed;
+            width:100%;
+            top:0;
+            left:0;
+            z-index:1000;
+            backdrop-filter:blur(20px);
+            background:rgba(255,255,255,0.05);
+            border-bottom:1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-bar{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:20px 10%;
+        }
+
+        .logo{
+            font-size:1.5rem;
+            font-weight:700;
+            color:#00ffff;
+        }
+
+        .nav-items{
+            display:flex;
+            gap:30px;
+        }
+
+        .nav-items a{
+            transition:.3s;
+        }
+
+        .nav-items a:hover{
+            color:#00ffff;
+        }
+
+        /* HERO */
+
+        .home{
+            min-height:100vh;
+            display:flex;
+            align-items:center;
+            position:relative;
+        }
+
+        .home-container{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            gap:60px;
+            flex-wrap:wrap;
+        }
+
+        .info{
+            max-width:600px;
+            z-index:2;
+        }
+
+        .info h2{
+            font-size:3rem;
+            margin-bottom:10px;
+        }
+
+        .info h2 span{
+            color:#00ffff;
+        }
+
+        .info h3{
+            font-size:1.5rem;
+            color:#bdbdbd;
+            margin-bottom:20px;
+        }
+
+        .info p{
+            line-height:1.8;
+            margin-bottom:30px;
+            color:#d1d1d1;
+        }
+
+        .btn{
+            display:inline-block;
+            padding:15px 30px;
+            border-radius:15px;
+            background:linear-gradient(135deg,#00ffff,#0066ff);
+            color:white;
+            font-weight:600;
+            transition:.4s;
+            box-shadow:0 0 20px rgba(0,255,255,0.4);
+        }
+
+        .btn:hover{
+            transform:translateY(-5px);
+            box-shadow:0 0 30px rgba(0,255,255,0.7);
+        }
+
+        .home-img{
+            position:relative;
+        }
+
+        .home-img img{
+            width:350px;
+            border-radius:30px;
+            border:2px solid rgba(255,255,255,0.1);
+            box-shadow:0 0 50px rgba(0,255,255,0.2);
+        }
+
+        .media-icons{
+            position:absolute;
+            left:40px;
+            top:50%;
+            transform:translateY(-50%);
+            display:flex;
+            flex-direction:column;
+            gap:20px;
+        }
+
+        .media-icons a{
+            width:45px;
+            height:45px;
+            border-radius:50%;
+            background:rgba(255,255,255,0.05);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            transition:.3s;
+            border:1px solid rgba(255,255,255,0.1);
+        }
+
+        .media-icons a:hover{
+            background:#00ffff;
+            color:#050816;
+            transform:scale(1.1);
+        }
+
+        /* TITLES */
+
+        .section-title{
+            text-align:center;
+            font-size:3rem;
+            margin-bottom:60px;
+            color:#00ffff;
+        }
+
+        /* SOBRE */
+
+        .about-content{
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:50px;
+            flex-wrap:wrap;
+        }
+
+        .about-text{
+            flex:1;
+        }
+
+        .about-text h3{
+            font-size:2rem;
+            margin-bottom:20px;
+        }
+
+        .about-text p{
+            line-height:1.8;
+            color:#d1d1d1;
+        }
+
+        .about-card{
+            flex:1;
+            background:rgba(255,255,255,0.05);
+            border:1px solid rgba(255,255,255,0.1);
+            padding:40px;
+            border-radius:25px;
+            backdrop-filter:blur(20px);
+            box-shadow:0 0 30px rgba(0,255,255,0.08);
+        }
+
+        /* SKILLS */
+
+        .skills-container{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            gap:30px;
+        }
+
+        .skill-card{
+            background:rgba(255,255,255,0.05);
+            padding:30px;
+            border-radius:25px;
+            backdrop-filter:blur(15px);
+            border:1px solid rgba(255,255,255,0.1);
+            transition:.4s;
+        }
+
+        .skill-card:hover{
+            transform:translateY(-10px);
+            box-shadow:0 0 30px rgba(0,255,255,0.2);
+        }
+
+        .skill-card h3{
+            margin-bottom:15px;
+            color:#00ffff;
+        }
+
+        /* PORTFOLIO */
+
+        .portfolio-container{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+            gap:30px;
+        }
+
+        .project-card{
+            position:relative;
+            overflow:hidden;
+            border-radius:25px;
+            background:rgba(255,255,255,0.05);
+            border:1px solid rgba(255,255,255,0.1);
+            transition:.4s;
+        }
+
+        .project-card img{
+            width:100%;
+            display:block;
+        }
+
+        .project-info{
+            padding:25px;
+        }
+
+        .project-info h3{
+            margin-bottom:10px;
+            color:#00ffff;
+        }
+
+        .project-card:hover{
+            transform:translateY(-10px);
+            box-shadow:0 0 30px rgba(0,255,255,0.2);
+        }
+
+        /* FOOTER */
+
+        footer{
+            padding:40px 10%;
+            text-align:center;
+            border-top:1px solid rgba(255,255,255,0.1);
+            color:#bdbdbd;
+        }
+
+        /* RESPONSIVO */
+
+        @media(max-width:900px){
+
+            .home-container{
+                flex-direction:column;
+                text-align:center;
+            }
+
+            .media-icons{
+                position:relative;
+                flex-direction:row;
+                left:0;
+                top:0;
+                transform:none;
+                margin-bottom:30px;
+            }
+
+            .nav-items{
+                display:none;
+            }
+
+            .info h2{
+                font-size:2.3rem;
+            }
+
+            .home-img img{
+                width:280px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="nav-bar">
+
+            <a href="#" class="logo">
+                Marcello Gomes
+            </a>
+
+            <div class="nav-items">
+                <a href="#home">Home</a>
+                <a href="#about">Sobre</a>
+                <a href="#skills">Habilidades</a>
+                <a href="#portfolio">Projetos</a>
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- HOME -->
+
+    <section class="home" id="home">
+
+        <div class="media-icons">
+
+            <a href="https://wa.me/5562999897239" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+
+            <a href="#">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+
+            <a href="#">
+                <i class="fab fa-github"></i>
+            </a>
+
+        </div>
+
+        <div class="home-container">
+
+            <div class="info">
+
+                <h2>
+                    Olá, eu sou <span>Marcello Gomes</span>
+                </h2>
+
+                <h3>
+                    Desenvolvedor Front-End & Back-End 🚀
+                </h3>
+
+                <p>
+                    Desenvolvo websites modernos, aplicações web e soluções inteligentes com foco em design, performance e experiência do usuário.
+                </p>
+
+                <a href="https://wa.me/5562999897239"
+                   target="_blank"
+                   class="btn">
+                    Fale Comigo
+                </a>
+
+            </div>
+
+            <div class="home-img">
+
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1000&auto=format&fit=crop" alt="Marcello Gomes">
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- SOBRE -->
+
+    <section id="about">
+
+        <h1 class="section-title">
+            Sobre Mim
+        </h1>
+
+        <div class="about-content">
+
+            <div class="about-text">
+
+                <h3>
+                    Desenvolvedor apaixonado por tecnologia.
+                </h3>
+
+                <p>
+                    Tenho experiência nas áreas administrativa, financeira e tecnológica. Atualmente foco no desenvolvimento de websites modernos, aplicações web e soluções inteligentes utilizando HTML, CSS, JavaScript, Python e Django.
+                </p>
+
+            </div>
+
+            <div class="about-card">
+
+                <h3>Experiência</h3>
+
+                <p>
+                    ✔ 5+ anos na área administrativa e financeira
+                </p>
+
+                <br>
+
+                <p>
+                    ✔ 1+ ano com desenvolvimento web
+                </p>
+
+                <br>
+
+                <p>
+                    ✔ Conhecimentos em Front-End e Back-End
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- SKILLS -->
+
+    <section id="skills">
+
+        <h1 class="section-title">
+            Habilidades
+        </h1>
+
+        <div class="skills-container">
+
+            <div class="skill-card">
+                <h3>HTML</h3>
+                <p>Estruturação moderna e semântica.</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>CSS</h3>
+                <p>Layouts responsivos e animações modernas.</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>JavaScript</h3>
+                <p>Interatividade e manipulação do DOM.</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Python</h3>
+                <p>Automação e desenvolvimento back-end.</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Django</h3>
+                <p>Criação de aplicações web completas.</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>UI/UX</h3>
+                <p>Interfaces modernas e intuitivas.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- PORTFOLIO -->
+
+    <section id="portfolio">
+
+        <h1 class="section-title">
+            Projetos
+        </h1>
+
+        <div class="portfolio-container">
+
+            <div class="project-card">
+
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop" alt="Projeto">
+
+                <div class="project-info">
+
+                    <h3>
+                        Videira Anápolis
+                    </h3>
+
+                    <p>
+                        Website institucional moderno desenvolvido com HTML, CSS e JavaScript.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="project-card">
+
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop" alt="Projeto">
+
+                <div class="project-info">
+
+                    <h3>
+                        Sistema Web
+                    </h3>
+
+                    <p>
+                        Aplicação desenvolvida com Python e Django para automação de processos.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 Marcello Gomes • Todos os direitos reservados.
+        </p>
+
+    </footer>
+
+</body>
+</html>
+```
